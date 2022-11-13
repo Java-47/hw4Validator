@@ -8,12 +8,12 @@ public class Validator {
 	
 	public static boolean checkDateFormatEU(String str) {
 		
-		return str.matches("([0-2][0-9]||3[0-1])[.](0[0-9]||1[0-2])[.]([0-9]{2})?[0-9]{2}");
+		return str.matches("([1-2][0-9]||3[0-1]||[0][9])[.](0[0-9]||1[0-2])[.]([0-9]{2})?[0-9]{2}");
 	}
 	
 	public static boolean checkDateFormatUS(String str) {
 		
-		return str.matches("([0-9]{2})?[0-9]{2}[.](0[0-9]||1[0-2])[.]([0-2][0-9]||3[0-1])");
+		return str.matches("([0-9]{2})?[0-9]{2}[-](0[0-9]||1[0-2])[-]([1-2][0-9]||3[0-1]||[0][9])");
 	}
 	
 	public static boolean checkPhoneNumber(String str) {
@@ -23,6 +23,6 @@ public class Validator {
 	
 	public static boolean checkLessEquals255(String str) {
 		
-		return str.matches("[1-2][0-5][0-5]||[0-9]||[1-9][0-9]");
+		return str.matches("[1-2][0-5][0-5]||[0-9]||[1-9][0-9]||[1][0-9][0-9]");
 	}
 }

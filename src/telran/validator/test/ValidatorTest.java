@@ -24,17 +24,24 @@ class ValidatorTest {
 		assertFalse(checkDateFormatEU("32.12.1970"));
 		assertFalse(checkDateFormatEU("31.13.1970"));
 		assertFalse(checkDateFormatEU("31.22.1970"));
-		assertFalse(checkDateFormatEU("32.22.1970"));
+		assertFalse(checkDateFormatEU("32.22.2018"));
+		
+		assertFalse(checkDateFormatEU("00.01.2018"));
+		
 
 		}
 
 	@Test
 	void testCheckDateFormatUS() {
-		assertTrue(checkDateFormatUS("1970.12.31"));
-		assertFalse(checkDateFormatUS("1970.12.32"));
-		assertFalse(checkDateFormatUS("1970.13.31"));
-		assertFalse(checkDateFormatUS("1970.22.31"));
-		assertFalse(checkDateFormatUS("1970.22.32"));
+		assertTrue(checkDateFormatUS("1970-12-31"));
+		assertFalse(checkDateFormatUS("1970-12-32"));
+		assertFalse(checkDateFormatUS("1970-13-31"));
+		assertFalse(checkDateFormatUS("1970-22-31"));
+		assertFalse(checkDateFormatUS("1970-22-32"));
+		
+		assertFalse(checkDateFormatUS("2018-00-00"));
+		
+		assertTrue(checkDateFormatUS("2018-01-20"));
 
 	}
 
@@ -58,6 +65,8 @@ class ValidatorTest {
 		assertTrue(checkLessEquals255("255"));
 		assertFalse(checkLessEquals255("-1"));
 		assertFalse(checkLessEquals255("256"));
+		
+		assertTrue(checkLessEquals255("199"));
 	}
 
 }
